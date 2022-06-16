@@ -1,0 +1,30 @@
+@keyframes fadeIn {
+	0% {
+		display: block;
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	0% {
+		opacity: initial;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.show {
+	display: block;
+	animation: fadeIn forwards 0.5s cubic-bezier(0.37, 0, 0, 1.01);
+}
+.hidden {
+	animation: fadeOut forwards 0.5s cubic-bezier(0.37, 0, 0, 1.01);
+
+	&--instant {
+		display: none;
+	}
+}

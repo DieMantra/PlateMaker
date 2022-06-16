@@ -520,8 +520,21 @@ var _htmlToImage = require("html-to-image");
 // 			console.error('oops, something went wrong!', error);
 // 		});
 // }
+let moveActivateArray = [
+    artMiddleText,
+    artSideText,
+    artBottomText,
+    artTopText
+];
 function download() {
     document.getElementById("artBackground").style.scale = 1;
+    function clear() {
+        moveActivateArray.forEach((eventcall)=>{
+            document.getElementById(eventcall.id + "--movespan").classList.add("hidden--instant");
+            document.getElementById(eventcall.id + "--movespan").classList.remove("show");
+        });
+    }
+    clear();
     _htmlToImage.toPng(document.getElementById("artBackground"), {
         quality: 1,
         canvasWidth: 2100,

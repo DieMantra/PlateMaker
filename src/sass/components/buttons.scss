@@ -2,9 +2,9 @@
 	text-transform: uppercase;
 	text-decoration: underline;
 	font-size: 1.6rem;
-	color: var(--text-color-secondary);
+	color: var(--text-color-primary);
 	border-style: none;
-	background-color: var(--bg-color-dark);
+	background-color: var(--bg-color-mid);
 	padding: 1rem;
 
 	box-shadow: var(--drop-shadow-sm);
@@ -16,7 +16,7 @@
 		aspect-ratio: 1/1;
 	}
 	&:hover {
-		background-color: var(--bg-color-mid);
+		background-color: var(--text-color-secondary);
 		color: var(--text-color-primary);
 		transform: translateY(-2px);
 		cursor: pointer;
@@ -35,4 +35,36 @@
 	top: 25.4rem;
 	width: 70%;
 	align-self: center;
+}
+
+.svg__btn {
+	position: absolute;
+	width: 5rem;
+	padding: 1rem;
+	margin: 1rem;
+	border-radius: 5px;
+	color: red;
+	background-color: var(--bg-color-mid);
+
+	transition: 0.2s;
+
+	box-shadow: var(--drop-shadow-sm);
+
+	&__controls {
+		top: 0;
+		right: 0;
+	}
+	&__fontsize {
+		bottom: 0;
+		right: 0;
+		fill: red;
+	}
+
+	&:hover {
+		background-color: var(--text-color-secondary);
+		transform: translateY(-3px);
+	}
+	&:active {
+		transform: translateY(-1px);
+	}
 }

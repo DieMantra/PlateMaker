@@ -4,18 +4,31 @@
 	min-height: 15rem;
 	border-radius: 5px;
 	box-shadow: var(--drop-shadow-lg);
-	margin-inline: auto;
+	// margin-inline: auto;
 	display: grid;
 
 	place-items: center;
+
+	position: relative;
+	z-index: 10;
+
+	grid-column: 1 / span 1;
+	grid-row: 2 / span 1;
 }
 @media screen and (min-width: 600px) {
 	.artboard {
 		min-height: 30rem;
+
+		position: relative;
+		z-index: 10;
+
+		grid-row: 1 / span 1;
+		grid-column: 1 / span 2;
 	}
 }
+
 .art {
-	overflow: hidden;
+	// overflow: hidden;
 	font-family: 'regofont';
 	position: relative;
 	min-width: 270px;
@@ -50,17 +63,21 @@
 @media screen and (min-width: 600px) {
 	.art {
 		scale: 2;
+		// min-width: calc(270px * 2);
 	}
 }
 .text__content {
 	color: var(--art-accent-clr);
-	place-self: center;
 	text-transform: uppercase;
 	position: absolute;
+	cursor: pointer;
+	// min-width: auto;
+	z-index: 1000;
+	text-orientation: upright;
 
 	&__middle {
-		font-size: 4rem;
-		left: 15%;
+		font-size: 5rem;
+		left: 18%;
 		top: 25%;
 		white-space: nowrap;
 	}
@@ -72,13 +89,12 @@
 	}
 	&__left {
 		display: flex;
-		word-break: break-all;
-		text-transform: uppercase;
+		writing-mode: vertical-rl;
+		text-orientation: upright;
 		text-align: center;
-		width: 0.2em;
 		left: 5%;
 		top: 28%;
-		// white-space: nowrap;
+		white-space: nowrap;
 	}
 	&__bottom {
 		left: 35%;
@@ -87,4 +103,67 @@
 		padding-bottom: 0.5rem;
 		white-space: nowrap;
 	}
+}
+@media screen and (min-width: 600px) {
+	.text__content {
+		&:hover {
+			outline: 1px solid red;
+		}
+
+		&__middle {
+			font-size: 4rem;
+			left: 18%;
+			top: 25%;
+		}
+		&__top {
+			left: 43%;
+			top: 10%;
+		}
+		&__left {
+			left: 5%;
+			top: 28%;
+		}
+		&__bottom {
+			left: 35%;
+			bottom: -1%;
+		}
+	}
+}
+#middle__text--movespan,
+#top__text--movespan,
+#left__text--movespan,
+#bottom__text--movespan {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	// aspect-ratio: 1/1;
+	border-radius: 100%;
+	background-color: rgba(255, 255, 255, 0.749);
+	cursor: move;
+	opacity: 0;
+	border: 1px solid var(--bg-color-dark);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#middle__text--movespan {
+	top: -20px;
+	right: -20px;
+}
+#top__text--movespan {
+	top: -10px;
+	right: -20px;
+}
+#left__text--movespan {
+	top: -20px;
+	right: -20px;
+}
+#bottom__text--movespan {
+	bottom: -10px;
+	right: -20px;
+}
+.move__svg {
+	width: 12px;
+	aspect-ratio: 1/1;
 }

@@ -1,7 +1,42 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    display: block;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: initial;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.show {
+  animation: fadeIn .5s cubic-bezier(.37, 0, 0, 1.01) forwards;
+  display: block;
+}
+
+.hidden {
+  animation: fadeOut .5s cubic-bezier(.37, 0, 0, 1.01) forwards;
+}
+
+.hidden--instant {
+  display: none;
+}
+
 .btn {
   text-transform: uppercase;
-  color: var(--text-color-secondary);
-  background-color: var(--bg-color-dark);
+  color: var(--text-color-primary);
+  background-color: var(--bg-color-mid);
   box-shadow: var(--drop-shadow-sm);
   border-style: none;
   border-radius: 3px;
@@ -16,7 +51,7 @@
 }
 
 .btn:hover {
-  background-color: var(--bg-color-mid);
+  background-color: var(--text-color-secondary);
   color: var(--text-color-primary);
   cursor: pointer;
   box-shadow: var(--drop-shadow-sm-1);
@@ -34,6 +69,38 @@
   align-self: center;
   position: absolute;
   top: 25.4rem;
+}
+
+.svg__btn {
+  width: 5rem;
+  color: red;
+  background-color: var(--bg-color-mid);
+  box-shadow: var(--drop-shadow-sm);
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  transition: all .2s;
+  position: absolute;
+}
+
+.svg__btn__controls {
+  top: 0;
+  right: 0;
+}
+
+.svg__btn__fontsize {
+  fill: red;
+  bottom: 0;
+  right: 0;
+}
+
+.svg__btn:hover {
+  background-color: var(--text-color-secondary);
+  transform: translateY(-3px);
+}
+
+.svg__btn:active {
+  transform: translateY(-1px);
 }
 
 *, :after, :before {
@@ -141,12 +208,6 @@ main {
   position: relative;
 }
 
-.container__grid__item--artboard {
-  z-index: 10;
-  grid-area: 2 / 1 / span 1 / span 1;
-  position: relative;
-}
-
 .container__grid__item--text {
   z-index: 11;
   grid-area: 3 / 1 / span 1 / span 1;
@@ -161,12 +222,6 @@ main {
   .container__grid__item--col-styles {
     z-index: 1;
     grid-area: 2 / 1 / span 1 / span 2;
-    position: relative;
-  }
-
-  .container__grid__item--artboard {
-    z-index: 10;
-    grid-area: 1 / 1 / span 1 / span 2;
     position: relative;
   }
 
@@ -199,16 +254,21 @@ footer {
 .artboard {
   min-height: 15rem;
   box-shadow: var(--drop-shadow-lg);
+  z-index: 10;
   background-color: #fff;
   border-radius: 5px;
+  grid-area: 2 / 1 / span 1 / span 1;
   place-items: center;
-  margin-inline: auto;
   display: grid;
+  position: relative;
 }
 
 @media screen and (min-width: 600px) {
   .artboard {
     min-height: 30rem;
+    z-index: 10;
+    grid-area: 1 / 1 / span 1 / span 2;
+    position: relative;
   }
 }
 
@@ -221,7 +281,6 @@ footer {
   justify-content: center;
   font-family: regofont;
   position: relative;
-  overflow: hidden;
 }
 
 .art .outter__line {
@@ -253,15 +312,17 @@ footer {
 .text__content {
   color: var(--art-accent-clr);
   text-transform: uppercase;
-  place-self: center;
+  cursor: pointer;
+  z-index: 1000;
+  text-orientation: upright;
   position: absolute;
 }
 
 .text__content__middle {
   white-space: nowrap;
-  font-size: 4rem;
+  font-size: 5rem;
   top: 25%;
-  left: 15%;
+  left: 18%;
 }
 
 .text__content__top {
@@ -272,10 +333,10 @@ footer {
 }
 
 .text__content__left {
-  word-break: break-all;
-  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
   text-align: center;
-  width: .2em;
+  white-space: nowrap;
   display: flex;
   top: 28%;
   left: 5%;
@@ -287,6 +348,72 @@ footer {
   padding-bottom: .5rem;
   bottom: -1%;
   left: 35%;
+}
+
+@media screen and (min-width: 600px) {
+  .text__content:hover {
+    outline: 1px solid red;
+  }
+
+  .text__content__middle {
+    font-size: 4rem;
+    top: 25%;
+    left: 18%;
+  }
+
+  .text__content__top {
+    top: 10%;
+    left: 43%;
+  }
+
+  .text__content__left {
+    top: 28%;
+    left: 5%;
+  }
+
+  .text__content__bottom {
+    bottom: -1%;
+    left: 35%;
+  }
+}
+
+#middle__text--movespan, #top__text--movespan, #left__text--movespan, #bottom__text--movespan {
+  width: 20px;
+  height: 20px;
+  cursor: move;
+  opacity: 0;
+  border: 1px solid var(--bg-color-dark);
+  background-color: #ffffffbf;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+#middle__text--movespan {
+  top: -20px;
+  right: -20px;
+}
+
+#top__text--movespan {
+  top: -10px;
+  right: -20px;
+}
+
+#left__text--movespan {
+  top: -20px;
+  right: -20px;
+}
+
+#bottom__text--movespan {
+  bottom: -10px;
+  right: -20px;
+}
+
+.move__svg {
+  width: 12px;
+  aspect-ratio: 1 / 1;
 }
 
 .controls__input__container {

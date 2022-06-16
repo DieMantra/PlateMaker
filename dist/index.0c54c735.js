@@ -526,6 +526,16 @@ let moveActivateArray = [
     artBottomText,
     artTopText
 ];
+let midTextBox = document.getElementById("middle__text__box");
+let topTextBox = document.getElementById("top__text__box");
+let sideTextBox = document.getElementById("left__text__box");
+let bottomTextBox = document.getElementById("bottom__text__box");
+let textBoxArray = [
+    midTextBox,
+    topTextBox,
+    sideTextBox,
+    bottomTextBox
+];
 function download() {
     document.getElementById("artBackground").style.scale = 1;
     function clear() {
@@ -535,6 +545,12 @@ function download() {
         });
     }
     clear();
+    function clearBorder() {
+        textBoxArray.forEach((textElmt)=>{
+            textElmt.classList.remove("outlineRed");
+        });
+    }
+    clearBorder();
     _htmlToImage.toPng(document.getElementById("artBackground"), {
         quality: 1,
         canvasWidth: 2100,

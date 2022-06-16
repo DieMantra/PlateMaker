@@ -1,7 +1,6 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    display: block;
   }
 
   100% {
@@ -22,11 +21,12 @@
 
 .show {
   animation: fadeIn .5s cubic-bezier(.37, 0, 0, 1.01) forwards;
-  display: block;
+  display: flex;
 }
 
 .hidden {
   animation: fadeOut .5s cubic-bezier(.37, 0, 0, 1.01) forwards;
+  display: none;
 }
 
 .hidden--instant {
@@ -103,6 +103,25 @@
   transform: translateY(-1px);
 }
 
+@media screen and (max-width: 600px) {
+  .svg__btn {
+    width: 3.5rem;
+    border-radius: 5px;
+    margin: .5rem;
+    padding: 1rem;
+  }
+
+  .svg__btn__controls {
+    top: 0;
+    right: 0;
+  }
+
+  .svg__btn__fontsize {
+    bottom: 0;
+    right: 0;
+  }
+}
+
 *, :after, :before {
   box-sizing: border-box;
   margin: 0;
@@ -117,6 +136,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 600px) {
@@ -135,6 +155,7 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   display: grid;
+  overflow-x: hidden;
 }
 
 main {
@@ -309,105 +330,103 @@ footer {
   }
 }
 
+.outlineRed {
+  outline: 1px dashed red;
+}
+
 .text__content {
   color: var(--art-accent-clr);
   text-transform: uppercase;
   cursor: pointer;
   z-index: 1000;
   text-orientation: upright;
+  text-align: center;
   position: absolute;
 }
 
 .text__content__middle {
   white-space: nowrap;
+  text-align: center;
+  min-width: 80%;
+  min-height: 45%;
+  vertical-align: text-bottom;
   font-size: 5rem;
   top: 25%;
-  left: 18%;
+  left: 10%;
 }
 
 .text__content__top {
   letter-spacing: 3px;
   white-space: nowrap;
+  min-width: 80%;
+  min-height: 14px;
   top: 10%;
-  left: 43%;
+  left: 10%;
 }
 
 .text__content__left {
-  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
   text-orientation: upright;
-  text-align: center;
   white-space: nowrap;
-  display: flex;
-  top: 28%;
-  left: 5%;
+  min-height: 80%;
+  min-width: 10px;
+  top: 10%;
+  left: 3%;
 }
 
 .text__content__bottom {
+  min-height: 10%;
+  min-width: 80%;
   letter-spacing: 3px;
   white-space: nowrap;
   padding-bottom: .5rem;
-  bottom: -1%;
-  left: 35%;
+  top: 80%;
+  left: 10%;
 }
 
 @media screen and (min-width: 600px) {
   .text__content:hover {
-    outline: 1px solid red;
+    outline: 1px dashed red;
   }
 
   .text__content__middle {
     font-size: 4rem;
-    top: 25%;
-    left: 18%;
-  }
-
-  .text__content__top {
-    top: 10%;
-    left: 43%;
-  }
-
-  .text__content__left {
-    top: 28%;
-    left: 5%;
-  }
-
-  .text__content__bottom {
-    bottom: -1%;
-    left: 35%;
   }
 }
 
 #middle__text--movespan, #top__text--movespan, #left__text--movespan, #bottom__text--movespan {
   width: 20px;
   height: 20px;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(2px) invert();
   cursor: move;
   opacity: 0;
   border: 1px solid var(--bg-color-dark);
-  background-color: #ffffffbf;
+  background-color: #ffffff80;
   border-radius: 100%;
   justify-content: center;
   align-items: center;
-  display: flex;
   position: absolute;
+  box-shadow: 0 0 30px 5px #3737377f;
 }
 
 #middle__text--movespan {
-  top: -20px;
+  top: 30%;
   right: -20px;
 }
 
 #top__text--movespan {
-  top: -10px;
+  top: -100%;
   right: -20px;
 }
 
 #left__text--movespan {
   top: -20px;
-  right: -20px;
+  left: -20px;
 }
 
 #bottom__text--movespan {
-  bottom: -10px;
+  top: 80%;
   right: -20px;
 }
 

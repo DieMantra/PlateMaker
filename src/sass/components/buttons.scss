@@ -68,3 +68,21 @@
 		transform: translateY(-1px);
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.svg__btn {
+		width: 3.5rem;
+		padding: 1rem;
+		margin: 0.5rem;
+		border-radius: 5px;
+
+		&__controls {
+			top: 0;
+			right: 0;
+		}
+		&__fontsize {
+			bottom: 0;
+			right: 0;
+		}
+	}
+}

@@ -66,39 +66,61 @@
 		// min-width: calc(270px * 2);
 	}
 }
+
+.outlineRed {
+	outline: 1px dashed red;
+}
+
 .text__content {
 	color: var(--art-accent-clr);
 	text-transform: uppercase;
 	position: absolute;
 	cursor: pointer;
-	// min-width: auto;
+	// min-width: 20%;
 	z-index: 1000;
 	text-orientation: upright;
+	text-align: center;
 
 	&__middle {
 		font-size: 5rem;
-		left: 18%;
+		left: 10%;
 		top: 25%;
 		white-space: nowrap;
+		text-align: center;
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+
+		min-width: 80%;
+		min-height: 45%;
+
+		vertical-align: text-bottom;
 	}
 	&__top {
-		left: 43%;
+		left: 10%;
 		top: 10%;
 		letter-spacing: 3px;
 		white-space: nowrap;
+		min-width: 80%;
+		min-height: 14px;
 	}
 	&__left {
-		display: flex;
-		writing-mode: vertical-rl;
+		writing-mode: vertical-lr;
 		text-orientation: upright;
-		text-align: center;
-		left: 5%;
-		top: 28%;
+		left: 3%;
+		top: 10%;
 		white-space: nowrap;
+
+		// min-height: 70px;
+		min-height: 80%;
+		min-width: 10px;
 	}
 	&__bottom {
-		left: 35%;
-		bottom: -1%;
+		left: 10%;
+		top: 80%;
+		min-height: 10%;
+		min-width: 80%;
+
 		letter-spacing: 3px;
 		padding-bottom: 0.5rem;
 		white-space: nowrap;
@@ -107,25 +129,11 @@
 @media screen and (min-width: 600px) {
 	.text__content {
 		&:hover {
-			outline: 1px solid red;
+			outline: 1px dashed red;
 		}
 
 		&__middle {
 			font-size: 4rem;
-			left: 18%;
-			top: 25%;
-		}
-		&__top {
-			left: 43%;
-			top: 10%;
-		}
-		&__left {
-			left: 5%;
-			top: 28%;
-		}
-		&__bottom {
-			left: 35%;
-			bottom: -1%;
 		}
 	}
 }
@@ -138,29 +146,31 @@
 	height: 20px;
 	// aspect-ratio: 1/1;
 	border-radius: 100%;
-	background-color: rgba(255, 255, 255, 0.749);
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(1px);
+	-webkit-backdrop-filter: blur(2px) invert(1);
 	cursor: move;
 	opacity: 0;
 	border: 1px solid var(--bg-color-dark);
-	display: flex;
 	justify-content: center;
 	align-items: center;
+	box-shadow: 0px 0px 30px 5px #3737377f;
 }
 
 #middle__text--movespan {
-	top: -20px;
+	top: 30%;
 	right: -20px;
 }
 #top__text--movespan {
-	top: -10px;
+	top: -100%;
 	right: -20px;
 }
 #left__text--movespan {
 	top: -20px;
-	right: -20px;
+	left: -20px;
 }
 #bottom__text--movespan {
-	bottom: -10px;
+	top: 80%;
 	right: -20px;
 }
 .move__svg {

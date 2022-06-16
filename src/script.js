@@ -254,19 +254,19 @@ function dragElement(elmnt) {
 }
 
 // MOVEMENT BTNS ///////////
-const eventArray = ['click', 'ontouchstart'];
-moveActivateArray.forEach((textElement) => {
-	eventArray.forEach((evt) =>
-		textElement.addEventListener(evt, function (e) {
-			document
-				.getElementById(e.currentTarget.id + '--movespan')
-				.classList.toggle('show');
-			document
-				.getElementById(e.currentTarget.id + '--movespan')
-				.classList.toggle('hidden');
-		})
-	);
-});
+// const eventArray = ['click', 'ontouchstart'];
+// moveActivateArray.forEach((textElement) => {
+// 	eventArray.forEach((evt) =>
+// 		textElement.addEventListener(evt, function (e) {
+// 			document
+// 				.getElementById(e.currentTarget.id + '--movespan')
+// 				.classList.toggle('show');
+// 			document
+// 				.getElementById(e.currentTarget.id + '--movespan')
+// 				.classList.toggle('hidden');
+// 		})
+// 	);
+// });
 
 moveActivateArray.forEach((eventcall) => {
 	controlsBtn.addEventListener('click', function () {
@@ -279,5 +279,11 @@ moveActivateArray.forEach((eventcall) => {
 		document
 			.getElementById(eventcall.id + '--movespan')
 			.classList.toggle('hidden');
+	});
+});
+
+controlsBtn.addEventListener('click', () => {
+	textBoxArray.forEach((textElmt) => {
+		textElmt.classList.toggle('outlineRed');
 	});
 });

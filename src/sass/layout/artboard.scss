@@ -25,17 +25,15 @@
 .notouch {
 	touch-action: none;
 }
+// PLATE BACKGROUND
 .art {
-	// overflow: hidden;
 	font-family: var(--art-font);
 	position: relative;
 	min-width: 270px;
 	aspect-ratio: 3.14;
-	// height: 86.33px;
 	border-radius: 10px;
 	text-align: center;
 	background-color: #000;
-
 	justify-content: center;
 
 	.outter__line {
@@ -61,7 +59,6 @@
 @media screen and (min-width: 600px) {
 	.art {
 		scale: 2;
-		// min-width: calc(270px * 2);
 	}
 }
 
@@ -74,7 +71,6 @@
 	text-transform: uppercase;
 	position: absolute;
 	cursor: pointer;
-	// min-width: 20%;
 	z-index: 1000;
 	text-orientation: upright;
 	text-align: center;
@@ -85,13 +81,8 @@
 		top: 25%;
 		white-space: nowrap;
 		text-align: center;
-		// display: flex;
-		// justify-content: center;
-		// align-items: center;
-
 		min-width: 80%;
 		min-height: 45%;
-
 		vertical-align: text-bottom;
 	}
 	&__top {
@@ -109,7 +100,6 @@
 		top: 10%;
 		white-space: nowrap;
 
-		// min-height: 70px;
 		min-height: 80%;
 		min-width: 10px;
 	}
@@ -142,14 +132,11 @@
 	position: absolute;
 	width: 30px;
 	height: 30px;
-	// aspect-ratio: 1/1;
 	border-radius: 100%;
-	// background-color: rgba(255, 255, 255, 0.5);
 	backdrop-filter: invert(1);
 	-webkit-backdrop-filter: invert(1);
 	cursor: move;
 	opacity: 0;
-	// border: 1px solid var(--bg-color-dark);
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0px 0px 30px 5px #3737377f;
@@ -181,6 +168,7 @@
 	}
 }
 
+// GRID LINES
 .span--x {
 	z-index: 100;
 	position: absolute;

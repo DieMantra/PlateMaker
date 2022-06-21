@@ -19,6 +19,7 @@ const artMiddleText = document.getElementById('middle__text');
 const artSideText = document.getElementById('left__text');
 const artTopText = document.getElementById('top__text');
 const artBottomText = document.getElementById('bottom__text');
+console.log(controlsBtn);
 
 (function () {
 	artBackground.style.backgroundColor = backgroundColorPicker;
@@ -389,3 +390,31 @@ topOnOff.addEventListener('change', () => {
 btmOnOff.addEventListener('change', () => {
 	bottomTextBox.classList.toggle('remove-text');
 });
+
+// 	SLIDE OUT CONTROLS ANIMATION
+////////////////////////////////////////////
+controlsBtn.addEventListener('change', () => {
+	const posXlabelControl = document.querySelector('.pos__controls--x');
+	const posYlabelControl = document.querySelector('.pos__controls--y');
+	let dragBtnArr = [posXlabelControl, posYlabelControl];
+	dragBtnArr.forEach((item) => {
+		if (item.classList.contains('slide-out--right')) {
+			item.classList.toggle('slide-out--left');
+		} else {
+			item.classList.toggle('slide-out--right');
+		}
+	});
+});
+// const fontSizeLabel = document.getElementById('fontBtnLabel');
+// const glowFlash = function (elmnt) {
+// 	let e = elmnt;
+// 	e.addEventListener('click', () => {
+// 		if (!e.classList.contains('glow')) {
+// 			e.classList.add('glow');
+// 		} else {
+// 			e.classList.remove('glow');
+// 		}
+// 	});
+// };
+
+// glowFlash(fontSizeLabel);

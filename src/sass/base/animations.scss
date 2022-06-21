@@ -1,6 +1,5 @@
 @keyframes fadeIn {
 	0% {
-		// display: flex;
 		opacity: 0;
 	}
 	100% {
@@ -28,4 +27,36 @@
 	&--instant {
 		display: none;
 	}
+}
+@keyframes slideOutRight {
+	100% {
+		transform: translateX(0%);
+	}
+}
+@keyframes slideOutLeft {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(300%);
+	}
+}
+@keyframes glowFlash {
+	0% {
+	}
+	50% {
+		background-color: var(--text-color-secondary);
+	}
+	100% {
+	}
+}
+.slide-out--right {
+	animation: slideOutRight forwards 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.slide-out--left {
+	animation: slideOutLeft forwards 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glow {
+	animation: glowFlash forwards 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

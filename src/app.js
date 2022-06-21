@@ -94,6 +94,14 @@ function downloadPng() {
 		})
 		.then(function () {
 			document.getElementById('artBackground').style.scale = '';
+			moveActivateArray.forEach((eventcall) => {
+				document
+					.getElementById(eventcall.id + '--movespan')
+					.classList.remove('hidden--instant');
+				document
+					.getElementById(eventcall.id + '--movespan')
+					.classList.add('show');
+			});
 		});
 }
 

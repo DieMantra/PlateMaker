@@ -41,14 +41,6 @@
 	}
 }
 
-// .controls__container {
-// 	display: grid;
-// 	grid-template-columns: 1fr;
-// 	grid-template-rows: repeat(2, auto);
-
-// 	grid-gap: 1.5rem;
-// }
-
 .controls__text {
 	display: grid;
 	grid-gap: 1rem;
@@ -59,12 +51,7 @@
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	}
 }
-// .controls__text__input {
-// 	display: flex;
-// 	flex-direction: row;
-// 	justify-content: space-around;
-// 	align-items: center;
-// }
+
 footer {
 	display: flex;
 	justify-content: center;

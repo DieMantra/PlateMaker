@@ -25,13 +25,10 @@
 	font-size: 1.6rem;
 	border-radius: 5px;
 	border: 1px solid rgba(100, 100, 100, 0.247);
-	// background-color: var(--bg-color-mid);
-	// box-shadow: var(--drop-shadow-md);
 
 	backdrop-filter: blur(200px);
 	-webkit-backdrop-filter: blur(200px);
 
-	// colours selector
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -47,6 +44,63 @@
 
 	&--style {
 		grid-row: 2 / span 1;
+		justify-content: flex-start;
+		align-items: center;
+
+		&--box {
+			display: flex;
+			justify-content: space-between;
+			overflow: hidden;
+
+			& > input {
+				display: none;
+			}
+		}
+
+		&--controls {
+			height: var(--btn-sm);
+			width: var(--btn-sm);
+			background-color: var(--bg-color-mid);
+			border-radius: 5px;
+			position: relative;
+			z-index: 1;
+			transform: translateX(200%);
+			transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		&--pos__controls {
+			display: flex;
+			align-items: center;
+
+			& > label {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: var(--bg-color-mid);
+				height: var(--btn-sm);
+				width: var(--btn-sm);
+				border-radius: 5px;
+
+				transform: translateX(300%);
+				position: relative;
+				z-index: 1;
+				transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+			}
+
+			& > input {
+				display: none;
+			}
+		}
+
+		&--font-size {
+			border-style: none;
+			background-color: var(--bg-color-mid);
+			height: var(--btn-sm);
+			width: var(--btn-sm);
+			border-radius: 5px;
+			position: relative;
+			z-index: 10;
+		}
 	}
 
 	&--text4 {
@@ -55,24 +109,22 @@
 		justify-content: flex-start;
 		flex: 0 1 1;
 	}
-
-	// style selector
-	.form {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		// margin: 1.6rem;
-		.label {
-			margin-right: auto;
-		}
-		input {
-			position: relative;
-			margin: 0.8rem;
-			// position: absolute;
-			// opacity: 0;
-			cursor: pointer;
-		}
+}
+// BTN LABEL CHECK COLORS
+.controls--check-btn {
+	&:checked ~ .controls__input--style--controls {
+		transform: translateX(0%);
+		background-color: var(--text-color-secondary);
 	}
+}
+#DragBtnX:checked ~ .pos__controls--x {
+	background-color: var(--text-color-secondary);
+}
+#DragBtnY:checked ~ .pos__controls--y {
+	background-color: var(--text-color-secondary);
+}
+.label--style {
+	margin-right: auto;
 }
 
 @media screen and (min-width: 600px) {

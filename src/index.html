@@ -23,97 +23,42 @@
 			<!-- ARTBOARD CONTAINER -->
 			<!-- <div class="container__grid__item--artboard"> -->
 			<div id="artboardid" class="artboard">
+				<!-- GRID LINES -->
 				<span class="span--x remove-it"></span>
 				<span class="span--x span--x--1 remove-it"></span>
 				<span class="span--x span--x--2 remove-it"></span>
 				<span class="span--y remove-it"></span>
 				<span class="span--y span--y--1 remove-it"></span>
 				<span class="span--y span--y--2 remove-it"></span>
-				<input
-					id="controls-check-btn"
-					type="checkbox"
-					class="controls--check-btn"
-				/>
-				<label for="controls-check-btn" class="svg__btn svg__btn__controls">
-					<img
-						draggable="false"
-						src="assets/controls.svg"
-						alt="control"
-						id="controlsBtn"
-					/>
-				</label>
-				<div class="pos__controls">
-					<input type="checkbox" id="DragBtnX" unchecked ></input>
-					<label for="DragBtnX" class="pos__controls--x remove-it">X</label>
-
-					<input type="checkbox" id="DragBtnY" unchecked ></input>
-					<label for="DragBtnY" class="pos__controls--y remove-it">Y</label>
-				</div>
-				<input
-					id="font-size-check-btn"
-					type="button"
-					class="font__size--check-btn"
-				/>
-				<label for="font-size-check-btn" class="svg__btn svg__btn__fontsize">
-					<img draggable="false" src="assets/fontsize.svg" alt="control" />
-					
-				</label>
+				<!-- ^^^^^^^^^^ -->
+				<!-- THE ACTUAL ART -->
 				<div id="artBackground" class="art">
-					<div
-						id="middle__text__box"
-						class="text__content text__content__middle"
-					>
-						<span
-							contenteditable="false"
-							id="middle__text--movespan"
-							class="hidden"
-						>
-							<img src="assets/move.svg" alt="movecontrol" class="move__svg" />
-						</span>
+					<div id="middle__text__box"class="text__content text__content__middle">
+						<span contenteditable="false" id="middle__text--movespan" class="hidden"></span>
 						<span contenteditable="true" id="middle__text">ABC 123</span>
 					</div>
 					<div id="top__text__box" class="text__content text__content__top">
-						<span
-							contenteditable="false"
-							id="top__text--movespan"
-							class="hidden"
-						>
-							<img src="assets/move.svg" alt="movecontrol" class="move__svg" />
-						</span>
+						<span contenteditable="false" id="top__text--movespan" class="hidden"></span>
 						<span contenteditable="true" id="top__text">VIC</span>
 					</div>
 					<div id="left__text__box" class="text__content text__content__left">
-						<span
-							contenteditable="false"
-							id="left__text--movespan"
-							class="hidden"
-						>
-							<img src="assets/move.svg" alt="movecontrol" class="move__svg" />
-						</span>
+						<span contenteditable="false" id="left__text--movespan" class="hidden"></span>
 						<span contenteditable="true" id="left__text">VIC</span>
 					</div>
-					<div
-						id="bottom__text__box"
-						class="text__content text__content__bottom"
-					>
-						<span
-							contenteditable="false"
-							id="bottom__text--movespan"
-							class="hidden"
-						>
-							<img src="assets/move.svg" alt="movecontrol" class="move__svg" />
-						</span>
+					<div id="bottom__text__box"class="text__content text__content__bottom">
+						<span contenteditable="false" id="bottom__text--movespan" class="hidden"></span>
 						<span contenteditable="true" id="bottom__text">VICTORIA</span>
 					</div>
 					<span class="outter__line"></span>
 					<span class="inner__line"></span>
 				</div>
+				<!-- ^^^^^^^^^^^^ -->
 			</div>
-			<!-- </div> -->
 
 			<!-- COLOR / STYLES CONTAINER -->
 			<div class="container__grid__item--col-styles">
 				<div class="controls__input__container">
+					<!-- COLOR CONTROLS -->
 					<div class="controls__input controls__input--colour">
 						<label for="colour">BACKGROUND</label>
 						<select name="colour" id="color--bg">
@@ -138,15 +83,24 @@
 							<option value="#00ff00">Green</option>
 						</select>
 					</div>
+					<!-- ^^^^^^^^^^^^^^ -->
+					<!-- MOVEMENT CONTROLS AND FONTS -->
 					<div class="controls__input controls__input--style">
-						<p class="label">STYLE</p>
-						<div class="form">
-							<input type="radio" name="style" id="style" checked="checked" />
-							<input type="radio" name="style" id="style" />
-							<input type="radio" name="style" id="style" />
-							<input type="radio" name="style" id="style" />
+						<p class="label label--style">STYLE</p>
+						<div class="controls__input--style--box">
+							<input id="controls-check-btn" type="checkbox" class="controls--check-btn"/>
+							<label for="controls-check-btn" class="controls__input--style--controls">C</label>
+							<div class="controls__input--style--pos__controls">
+								<input type="checkbox" id="DragBtnX" unchecked ></input>
+								<label for="DragBtnX" class="pos__controls--x">X</label>
+								<input type="checkbox" id="DragBtnY" unchecked ></input>
+								<label for="DragBtnY" class="pos__controls--y">Y</label>
+							</div>
+							<input id="font-size-check-btn" type="button" class="font__size--check-btn"/>
+							<label for="font-size-check-btn" id="fontBtnLabel" class="controls__input--style--font-size">F</label>
 						</div>
 					</div>
+					<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 				</div>
 			</div>
 

@@ -28,28 +28,23 @@
 	}
 }
 
-.update {
-	color: aquamarine;
-	position: absolute;
-
-	top: 25.4rem;
-	width: 70%;
-	align-self: center;
-}
-
 .svg__btn {
 	position: absolute;
 	width: 5rem;
+	aspect-ratio: 1/1;
 	padding: 1rem;
 	margin: 1rem;
 	border-radius: 5px;
-	color: red;
 	background-color: var(--bg-color-mid);
-
+	font-size: 1.6rem;
 	transition: 0.2s;
-
+	display: grid;
+	place-items: center;
 	box-shadow: var(--drop-shadow-sm);
 
+	& img {
+		position: absolute;
+	}
 	&__controls {
 		top: 0;
 		right: 0;
@@ -57,21 +52,32 @@
 	&__fontsize {
 		bottom: 0;
 		right: 0;
-		fill: red;
 	}
 
-	&:hover {
-		background-color: var(--text-color-secondary);
-		transform: translateY(-3px);
-	}
-	&:active {
-		transform: translateY(-1px);
+	// &:hover {
+	// 	background-color: var(--text-color-secondary);
+	// 	transform: translateY(-3px);
+	// }
+	// &:active {
+	// 	transform: translateY(-1px);
+	// }
+}
+@media only screen and (min-width: 900px) {
+	.svg__btn {
+		width: 6rem;
+		&:hover {
+			background-color: var(--text-color-secondary);
+			transform: translateY(-3px);
+		}
+		&:active {
+			transform: translateY(-1px);
+		}
 	}
 }
 
 @media screen and (max-width: 600px) {
 	.svg__btn {
-		width: 3.5rem;
+		width: 3rem;
 		padding: 1rem;
 		margin: 0.5rem;
 		border-radius: 5px;
@@ -83,6 +89,147 @@
 		&__fontsize {
 			bottom: 0;
 			right: 0;
+		}
+	}
+}
+
+.pos__controls {
+	list-style: none;
+	position: absolute;
+	right: 0;
+	top: 6rem;
+	display: flex;
+	flex-direction: column;
+	font-size: 1.6rem;
+
+	& input {
+		display: none;
+	}
+
+	&--x,
+	&--y {
+		transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		width: 5rem;
+		border-radius: 5px;
+		aspect-ratio: 1/1;
+		background-color: var(--bg-color-mid);
+	}
+}
+@media screen and (min-width: 900px) {
+	.pos__controls {
+		list-style: none;
+		position: absolute;
+		right: 0;
+		top: 6rem;
+		// margin-right: 1rem;
+		display: flex;
+		flex-direction: column;
+		font-size: 1.6rem;
+
+		& input {
+			display: none;
+		}
+
+		&--x,
+		&--y {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+			width: 6rem;
+			border-radius: 5px;
+			aspect-ratio: 1/1;
+			// margin-right: 1rem;
+			background-color: var(--bg-color-mid);
+		}
+	}
+}
+@media screen and (max-width: 600px) {
+	.pos__controls {
+		font-size: 0.8rem;
+		top: 3.5rem;
+		right: 0;
+		// margin: 0.5rem;
+
+		&--x,
+		&--y {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 3rem;
+			border-radius: 5px;
+			aspect-ratio: 1/1;
+			background-color: var(--bg-color-mid);
+		}
+	}
+}
+#DragBtnX:checked ~ .pos__controls--x {
+	background-color: var(--text-color-secondary);
+}
+#DragBtnY:checked ~ .pos__controls--y {
+	background-color: var(--text-color-secondary);
+}
+.font__size--check-btn,
+.controls--check-btn {
+	display: none;
+}
+
+.controls--check-btn:checked ~ .svg__btn__controls {
+	background-color: var(--text-color-secondary);
+}
+
+.on-off__sw {
+	position: relative;
+	// display: block;
+	width: 5.6rem;
+	height: 3rem;
+	margin-right: 1rem;
+	padding-right: 5.6rem;
+	padding-bottom: 3rem;
+	// border: 1px solid red;
+	// margin-left: auto;
+
+	&--btn {
+		display: none;
+		&:checked ~ .on-off__sw--span::after {
+			// left: initial;
+			left: calc(100% - 2px - 2.6rem);
+		}
+		&:checked ~ .on-off__sw--span::before {
+			// left: initial;
+			background-color: var(--bg-color-on);
+		}
+	}
+
+	&--span {
+		&::before {
+			content: '';
+			width: 5.6rem;
+			height: 3rem;
+			border-radius: 5rem;
+			background-color: var(--bg-color-mid);
+			position: absolute;
+			top: 0;
+			left: 0;
+			// border: 1px solid rgb(142, 142, 142);
+			box-shadow: var(--drop-shadow-sm);
+		}
+
+		&::after {
+			content: '';
+			width: 2.6rem;
+			height: 2.6rem;
+			background-color: #fff;
+			border-radius: 5rem;
+			position: absolute;
+			top: 2;
+			left: 2;
+			transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.175);
+			box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.07);
 		}
 	}
 }

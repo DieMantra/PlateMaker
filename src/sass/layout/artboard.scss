@@ -1,14 +1,10 @@
 .artboard {
 	background-color: #ffffff;
-	// min-width: 35rem;
 	min-height: 15rem;
 	border-radius: 5px;
 	box-shadow: var(--drop-shadow-lg);
-	// margin-inline: auto;
 	display: grid;
-
 	place-items: center;
-
 	position: relative;
 	z-index: 10;
 
@@ -26,10 +22,12 @@
 		grid-column: 1 / span 2;
 	}
 }
-
+.notouch {
+	touch-action: none;
+}
 .art {
 	// overflow: hidden;
-	font-family: 'regofont';
+	font-family: var(--art-font);
 	position: relative;
 	min-width: 270px;
 	aspect-ratio: 3.14;
@@ -68,7 +66,7 @@
 }
 
 .outlineRed {
-	outline: 1px dashed red;
+	outline: 1px dashed rgba(255, 0, 0, 0.5);
 }
 
 .text__content {
@@ -129,7 +127,7 @@
 @media screen and (min-width: 600px) {
 	.text__content {
 		&:hover {
-			outline: 1px dashed red;
+			outline: 1px dashed rgba(255, 0, 0, 0.501);
 		}
 
 		&__middle {
@@ -142,16 +140,16 @@
 #left__text--movespan,
 #bottom__text--movespan {
 	position: absolute;
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	// aspect-ratio: 1/1;
 	border-radius: 100%;
-	background-color: rgba(255, 255, 255, 0.5);
-	backdrop-filter: blur(1px);
-	-webkit-backdrop-filter: blur(2px) invert(1);
+	// background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: invert(1);
+	-webkit-backdrop-filter: invert(1);
 	cursor: move;
 	opacity: 0;
-	border: 1px solid var(--bg-color-dark);
+	// border: 1px solid var(--bg-color-dark);
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0px 0px 30px 5px #3737377f;
@@ -159,21 +157,58 @@
 
 #middle__text--movespan {
 	top: 30%;
-	right: -20px;
+	right: -40px;
 }
 #top__text--movespan {
 	top: -100%;
-	right: -20px;
+	right: -30px;
 }
 #left__text--movespan {
-	top: -20px;
-	left: -20px;
+	top: 100%;
+	left: -30px;
 }
 #bottom__text--movespan {
 	top: 80%;
-	right: -20px;
+	right: -30px;
 }
 .move__svg {
 	width: 12px;
 	aspect-ratio: 1/1;
+}
+@media screen and (max-width: 600px) {
+	.move__svg {
+		display: none;
+	}
+}
+
+.span--x {
+	z-index: 100;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	border: 0.5px dashed red;
+	width: 100%;
+	opacity: 0.75;
+
+	&--1 {
+		top: 35%;
+	}
+	&--2 {
+		top: 65%;
+	}
+}
+.span--y {
+	z-index: 100;
+	position: absolute;
+	left: 50%;
+	height: 100%;
+	border: 0.5px dashed red;
+	transform: translateX(-50%);
+	opacity: 0.75;
+	&--1 {
+		left: 35%;
+	}
+	&--2 {
+		left: 65%;
+	}
 }

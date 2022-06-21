@@ -22,7 +22,7 @@
 		"parcel": "parcel public/index.html",
 		"parcelbuild": "parcel build public/index.html",
 		"watch": "npm-run-all --parallel watch:*",
-		"start": "npm-run-all copy --parallel watch parcel"
+		"start": "npm-run-all copy --parallel watch"
 	},
 	"dependencies": {
 		"autoprefixer": "^10.4.2",

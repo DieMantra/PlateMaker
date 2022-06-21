@@ -22,18 +22,42 @@
 		<main class="container__grid">
 			<!-- ARTBOARD CONTAINER -->
 			<!-- <div class="container__grid__item--artboard"> -->
-			<div class="artboard">
-				<img
-					src="assets/controls.svg"
-					alt="control"
-					class="svg__btn svg__btn__controls"
-					id="controlsBtn"
+			<div id="artboardid" class="artboard">
+				<span class="span--x remove-it"></span>
+				<span class="span--x span--x--1 remove-it"></span>
+				<span class="span--x span--x--2 remove-it"></span>
+				<span class="span--y remove-it"></span>
+				<span class="span--y span--y--1 remove-it"></span>
+				<span class="span--y span--y--2 remove-it"></span>
+				<input
+					id="controls-check-btn"
+					type="checkbox"
+					class="controls--check-btn"
 				/>
-				<img
-					src="assets/fontsize.svg"
-					alt="control"
-					class="svg__btn svg__btn__fontsize"
+				<label for="controls-check-btn" class="svg__btn svg__btn__controls">
+					<img
+						draggable="false"
+						src="assets/controls.svg"
+						alt="control"
+						id="controlsBtn"
+					/>
+				</label>
+				<div class="pos__controls">
+					<input type="checkbox" id="DragBtnX" unchecked ></input>
+					<label for="DragBtnX" class="pos__controls--x remove-it">X</label>
+
+					<input type="checkbox" id="DragBtnY" unchecked ></input>
+					<label for="DragBtnY" class="pos__controls--y remove-it">Y</label>
+				</div>
+				<input
+					id="font-size-check-btn"
+					type="button"
+					class="font__size--check-btn"
 				/>
+				<label for="font-size-check-btn" class="svg__btn svg__btn__fontsize">
+					<img draggable="false" src="assets/fontsize.svg" alt="control" />
+					
+				</label>
 				<div id="artBackground" class="art">
 					<div
 						id="middle__text__box"
@@ -132,6 +156,16 @@
 					<div class="controls__text">
 						<!-- MIDDLE TEXT CONTROLS -->
 						<div class="controls__input controls__input--text4">
+							<div class="on-off__sw">
+								<input
+									type="checkbox"
+									name="on-off__sw"
+									class="on-off__sw--btn"
+									id="on-off__sw--md"
+									checked
+								/>
+								<label for="on-off__sw--md" class="on-off__sw--span"></label>
+							</div>
 							<div class="middle__txt--container">
 								<input
 									id="middle__text--input"
@@ -156,31 +190,19 @@
 									step="0.1"
 								/>
 							</div>
-							<div class="font__block font__block--posx__wrapper">
-								<label for="posX">Position X</label>
-								<input
-									type="range"
-									name="posX"
-									id="midPosX"
-									min="0"
-									max="50"
-									value="15"
-								/>
-							</div>
-							<div class="font__block font__block--posy__wrapper">
-								<label for="posY">Position Y</label>
-								<input
-									type="range"
-									name="posY"
-									id="midPosY"
-									min="0"
-									max="50"
-									value="15"
-								/>
-							</div>
 						</div>
 						<!-- SIDE TEXT CONTROLS -->
 						<div class="controls__input controls__input--text4">
+							<div class="on-off__sw">
+								<input
+									type="checkbox"
+									name="on-off__sw"
+									class="on-off__sw--btn"
+									id="on-off__sw--sd"
+									checked
+								/>
+								<label for="on-off__sw--sd" class="on-off__sw--span"></label>
+							</div>
 							<div class="side__txt--container">
 								<input
 									id="side__text--input"
@@ -205,33 +227,19 @@
 									step="0.01"
 								/>
 							</div>
-							<div class="font__block font__block--posx__wrapper">
-								<label for="posX">Position X</label>
-								<input
-									type="range"
-									name="posX"
-									id="sidePosX"
-									min="0"
-									max="10"
-									value="5"
-									step="0.1"
-								/>
-							</div>
-							<div class="font__block font__block--posy__wrapper">
-								<label for="posY">Position Y</label>
-								<input
-									type="range"
-									name="posY"
-									id="sidePosY"
-									min="0"
-									max="77"
-									value="30"
-									step="0.1"
-								/>
-							</div>
 						</div>
 						<!-- TOP TEXT CONTROL -->
 						<div class="controls__input controls__input--text4">
+							<div class="on-off__sw">
+								<input
+									type="checkbox"
+									name="on-off__sw"
+									class="on-off__sw--btn"
+									id="on-off__sw--top"
+									checked
+								/>
+								<label for="on-off__sw--top" class="on-off__sw--span"></label>
+							</div>
 							<div class="top__txt--container">
 								<input
 									id="top__text--input"
@@ -256,33 +264,19 @@
 									step="0.1"
 								/>
 							</div>
-							<div class="font__block font__block--posx__wrapper">
-								<label for="posX">Position X</label>
-								<input
-									type="range"
-									name="posX"
-									id="topPosX"
-									min="0"
-									max="100"
-									value="45"
-									step="0.1"
-								/>
-							</div>
-							<div class="font__block font__block--posy__wrapper">
-								<label for="posY">Position Y</label>
-								<input
-									type="range"
-									name="posY"
-									id="topPosY"
-									min="0"
-									max="25"
-									value="10"
-									step="0.1"
-								/>
-							</div>
 						</div>
 						<!-- BOTTOM TEXT CONTROLS -->
 						<div class="controls__input controls__input--text4">
+							<div class="on-off__sw">
+								<input
+									type="checkbox"
+									name="on-off__sw"
+									class="on-off__sw--btn"
+									id="on-off__sw--btm"
+									checked
+								/>
+								<label for="on-off__sw--btm" class="on-off__sw--span"></label>
+							</div>
 							<div class="bottom__txt--container">
 								<input
 									id="bottom__text--input"
@@ -304,30 +298,6 @@
 									value="1"
 									min="0.9"
 									max="2"
-									step="0.1"
-								/>
-							</div>
-							<div class="font__block font__block--posx__wrapper">
-								<label for="posX">Position X</label>
-								<input
-									type="range"
-									name="posX"
-									id="botPosX"
-									min="0"
-									max="100"
-									value="36"
-									step="0.1"
-								/>
-							</div>
-							<div class="font__block font__block--posy__wrapper">
-								<label for="posY">Position Y</label>
-								<input
-									type="range"
-									name="posY"
-									id="botPosY"
-									min="60"
-									max="90"
-									value="80"
 									step="0.1"
 								/>
 							</div>

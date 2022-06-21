@@ -12,7 +12,8 @@ const topTextSize = document.getElementById('topFontSize').value;
 const bottomTextSize = document.getElementById('bottomFontSize').value;
 
 //////// ARTBOARD ELEMENTS ////////
-const controlsBtn = document.getElementById('controlsBtn');
+const controlsBtn = document.getElementById('controls-check-btn');
+const fontSizeBtn = document.getElementById('font-size-check-btn');
 const artBackground = document.getElementById('artBackground');
 const artMiddleText = document.getElementById('middle__text');
 const artSideText = document.getElementById('left__text');
@@ -82,53 +83,6 @@ document
 	});
 
 ///////////////////////////////////////////////////
-// POSITIONING FUNCTIONALITY /////////////////////////
-// MIDDLE
-document.querySelector('#midPosX').addEventListener('input', function (e) {
-	let midPosX = e.currentTarget.value;
-	console.log(midPosX);
-	artMiddleText.style.left = `${midPosX}%`;
-});
-document.querySelector('#midPosY').addEventListener('input', function (e) {
-	let midPosY = e.currentTarget.value;
-	console.log(midPosY);
-	artMiddleText.style.top = `${midPosY}%`;
-});
-// TOP
-document.querySelector('#topPosX').addEventListener('input', function (e) {
-	let topPosX = e.currentTarget.value;
-	console.log(topPosX);
-	artTopText.style.left = `${topPosX}%`;
-});
-document.querySelector('#topPosY').addEventListener('input', function (e) {
-	let topPosY = e.currentTarget.value;
-	console.log(topPosY);
-	artTopText.style.top = `${topPosY}%`;
-});
-// SIDE
-document.querySelector('#sidePosX').addEventListener('input', function (e) {
-	let sidePosX = e.currentTarget.value;
-	console.log(sidePosX);
-	artSideText.style.left = `${sidePosX}%`;
-});
-document.querySelector('#sidePosY').addEventListener('input', function (e) {
-	let sidePosY = e.currentTarget.value;
-	console.log(sidePosY);
-	artSideText.style.top = `${sidePosY}%`;
-});
-// BOTTOM
-document.querySelector('#botPosX').addEventListener('input', function (e) {
-	let bottomPosX = e.currentTarget.value;
-	console.log(bottomPosX);
-	artBottomText.style.left = `${bottomPosX}%`;
-});
-document.querySelector('#botPosY').addEventListener('input', function (e) {
-	let bottomPosY = e.currentTarget.value;
-	console.log(bottomPosY);
-	artBottomText.style.top = `${bottomPosY}%`;
-});
-
-///////////////////////////////////////////////////
 // CLEAR TEXT INPUT FUNCTIONALITY ///////////////////
 const clearMidTxt = function () {
 	document.getElementById('middle__text--input').value = '';
@@ -176,23 +130,6 @@ document
 		artBottomText.style.fontSize = `${bottomFontSize}rem`;
 	});
 
-// document.body.addEventListener('pointermove', (e) => {
-// 	console.log(e);
-// });
-
-// artMiddleText.addEventListener('pointermove', (e) => {
-// 	let mov;
-// 	mov += e.movementX;
-
-// 	moveMidX(mov);
-// 	console.log(e.movementX);
-// });
-
-// function moveMidX(e) {
-// 	artMiddleText.style.left = `${e}%`;
-// 	console.log(e);
-// }
-
 // DRAG AND MOVE TEXT FUNCTIONALITY ////////////
 
 //Make the DIV element draggagle:
@@ -204,11 +141,26 @@ let sideTextBox = document.getElementById('left__text__box');
 let bottomTextBox = document.getElementById('bottom__text__box');
 let textBoxArray = [midTextBox, topTextBox, sideTextBox, bottomTextBox];
 
-textBoxArray.forEach((textElement) => {
-	dragElement(textElement);
+const DragBtnX = document.getElementById('DragBtnX');
+const DragBtnY = document.getElementById('DragBtnY');
+let xDragOnOff = false;
+let yDragOnOff = false;
+
+DragBtnX.addEventListener('change', () => {
+	xDragOnOff = xDragOnOff != true;
+	console.log(xDragOnOff);
 });
+DragBtnY.addEventListener('change', () => {
+	yDragOnOff = yDragOnOff != true;
+	console.log(yDragOnOff);
+});
+
+textBoxArray.forEach((textelmnt) => {
+	dragElement(textelmnt);
+});
+
 function dragElement(elmnt) {
-	var pos1 = 0,
+	let pos1 = 0,
 		pos2 = 0,
 		pos3 = 0,
 		pos4 = 0;
@@ -242,8 +194,17 @@ function dragElement(elmnt) {
 		pos3 = e.clientX;
 		pos4 = e.clientY;
 		// set the element's new position:
-		elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
-		elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
+		if (yDragOnOff === true && xDragOnOff === true) {
+			elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
+			elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
+		} else if (yDragOnOff === true) {
+			elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
+		} else if (xDragOnOff === true) {
+			elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
+		} else {
+			return;
+			// run animation on x y switches
+		}
 	}
 
 	function closeDragElement() {
@@ -252,9 +213,89 @@ function dragElement(elmnt) {
 		document.onpointermove = null;
 	}
 }
+// function dragElementX(elmnt) {
+// 	let pos1 = 0,
+// 		pos3 = 0;
+// 	if (document.getElementById(elmnt.id.replace('__box', '') + '--movespan')) {
+// 		/* if present, the header is where you move the DIV from:*/
+// 		document.getElementById(
+// 			elmnt.id.replace('__box', '') + '--movespan'
+// 		).onpointerdown = dragMouseDown;
+// 	} else {
+// 		/* otherwise, move the DIV from anywhere inside the DIV:*/
+// 		elmnt.onpointerdown = dragMouseDown;
+// 	}
+
+// 	function dragMouseDown(e) {
+// 		e = e || window.event;
+// 		e.preventDefault();
+// 		// get the mouse cursor position at startup:
+// 		pos3 = e.clientX;
+// 		document.onpointerup = closeDragElement;
+// 		// call a function whenever the cursor moves:
+// 		document.onpointermove = elementDrag;
+// 	}
+
+// 	function elementDrag(e) {
+// 		e = e || window.event;
+// 		e.preventDefault();
+// 		// calculate the new cursor position:
+// 		pos1 = pos3 - e.clientX;
+// 		pos3 = e.clientX;
+// 		// set the element's new position:
+
+// 		elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
+// 	}
+
+// 	function closeDragElement() {
+// 		/* stop moving when mouse button is released:*/
+// 		document.onpointerup = null;
+// 		document.onpointermove = null;
+// 	}
+// }
+// function dragElementY(elmnt) {
+// 	let pos2 = 0,
+// 		pos4 = 0;
+// 	if (document.getElementById(elmnt.id.replace('__box', '') + '--movespan')) {
+// 		/* if present, the header is where you move the DIV from:*/
+// 		document.getElementById(
+// 			elmnt.id.replace('__box', '') + '--movespan'
+// 		).onpointerdown = dragMouseDown;
+// 	} else {
+// 		/* otherwise, move the DIV from anywhere inside the DIV:*/
+// 		elmnt.onpointerdown = dragMouseDown;
+// 	}
+
+// 	function dragMouseDown(e) {
+// 		e = e || window.event;
+// 		e.preventDefault();
+// 		// get the mouse cursor position at startup:
+// 		pos4 = e.clientY;
+// 		document.onpointerup = closeDragElement;
+// 		// call a function whenever the cursor moves:
+// 		document.onpointermove = elementDrag;
+// 	}
+
+// 	function elementDrag(e) {
+// 		e = e || window.event;
+// 		e.preventDefault();
+// 		// calculate the new cursor position:
+// 		pos2 = pos4 - e.clientY;
+// 		pos4 = e.clientY;
+// 		// set the element's new position:
+
+// 		elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
+// 	}
+
+// 	function closeDragElement() {
+// 		/* stop moving when mouse button is released:*/
+// 		document.onpointerup = null;
+// 		document.onpointermove = null;
+// 	}
+// }
 
 // MOVEMENT BTNS ///////////
-// const eventArray = ['click', 'ontouchstart'];
+const eventArray = ['click', 'ontouchstart'];
 // moveActivateArray.forEach((textElement) => {
 // 	eventArray.forEach((evt) =>
 // 		textElement.addEventListener(evt, function (e) {
@@ -267,7 +308,29 @@ function dragElement(elmnt) {
 // 		})
 // 	);
 // });
+const gridAlignXArray = document.querySelectorAll('.span--x');
+const gridAlignYArray = document.querySelectorAll('.span--y');
 
+const artBoardID = document.getElementById('artboardid');
+controlsBtn.addEventListener('click', function () {
+	if (artBoardID.classList.contains('notouch')) {
+		artBoardID.classList.remove('notouch');
+		gridAlignXArray.forEach((element) => {
+			element.classList.toggle('remove-it');
+		});
+		gridAlignYArray.forEach((element) => {
+			element.classList.toggle('remove-it');
+		});
+	} else {
+		artBoardID.classList.add('notouch');
+		gridAlignXArray.forEach((element) => {
+			element.classList.toggle('remove-it');
+		});
+		gridAlignYArray.forEach((element) => {
+			element.classList.toggle('remove-it');
+		});
+	}
+});
 moveActivateArray.forEach((eventcall) => {
 	controlsBtn.addEventListener('click', function () {
 		document
@@ -282,8 +345,47 @@ moveActivateArray.forEach((eventcall) => {
 	});
 });
 
-controlsBtn.addEventListener('click', () => {
-	textBoxArray.forEach((textElmt) => {
-		textElmt.classList.toggle('outlineRed');
-	});
+// controlsBtn.addEventListener('click', () => {
+// 	textBoxArray.forEach((textElmt) => {
+// 		textElmt.classList.toggle('outlineRed');
+// 	});
+// });
+
+let fontCount = 0;
+console.log(fontCount);
+fontSizeBtn.addEventListener('click', () => {
+	if (fontCount === 3) {
+		fontCount = 0;
+	} else {
+		fontCount++;
+	}
+	console.log(fontCount);
+	const fontArray = ['regofont', 'morrissans', 'serioucity', 'herticalserif'];
+	document.documentElement.style.setProperty(
+		'--art-font',
+		`${fontArray[fontCount]}`
+	);
+});
+
+/// text field active functionality
+// 1) switch changes
+// 2) corresponding text movement functionality is removed
+
+const mdOnOff = document.getElementById('on-off__sw--md');
+const sdOnOff = document.getElementById('on-off__sw--sd');
+const topOnOff = document.getElementById('on-off__sw--top');
+const btmOnOff = document.getElementById('on-off__sw--btm');
+// console.log(onoff);
+
+mdOnOff.addEventListener('change', () => {
+	midTextBox.classList.toggle('remove-text');
+});
+sdOnOff.addEventListener('change', () => {
+	sideTextBox.classList.toggle('remove-text');
+});
+topOnOff.addEventListener('change', () => {
+	topTextBox.classList.toggle('remove-text');
+});
+btmOnOff.addEventListener('change', () => {
+	bottomTextBox.classList.toggle('remove-text');
 });

@@ -5,6 +5,8 @@
 	--bg-color-light: #f2f2f2;
 	--bg-color-dark: #494949;
 	--bg-color-mid: #d0d0d0;
+	--bg-color-act: #ff8383;
+	--bg-color-on: #9fff92;
 
 	// artboard vars
 	--art-accent-clr: #fff;
@@ -17,6 +19,9 @@
 		#e6e6e6 50.04%,
 		#c2c0c0 65.67%
 	);
+
+	// FONTS
+	--art-font: 'regofont';
 
 	// drop shadow
 	--drop-shadow-lg: 0px 100px 80px rgba(0, 0, 0, 0.07),

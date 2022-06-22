@@ -11,10 +11,10 @@
 	</head>
 	<body class="page__grid--align">
 		<header class="page__header">
-			<button id="reset" onclick="reset()" class="btn btn__reset">
+			<button id="reset" onclick="reset()" class="btn btn__reset click_clr">
 				&#10005;
 			</button>
-			<a id="save__btn" class="btn btn__save">
+			<a id="save__btn" class="btn btn__save click_clr">
 				save design
 				<span>&#10142;</span>
 			</a>
@@ -30,6 +30,8 @@
 				<span class="span--y remove-it"></span>
 				<span class="span--y span--y--1 remove-it"></span>
 				<span class="span--y span--y--2 remove-it"></span>
+				<span class="span--y span--y--3 remove-it"></span>
+				<span class="span--y span--y--4 remove-it"></span>
 				<!-- ^^^^^^^^^^ -->
 				<!-- THE ACTUAL ART -->
 				<div id="artBackground" class="art">
@@ -86,18 +88,19 @@
 					<!-- ^^^^^^^^^^^^^^ -->
 					<!-- MOVEMENT CONTROLS AND FONTS -->
 					<div class="controls__input controls__input--style">
-						<p class="label label--style">STYLE</p>
+						<p class="label label--style">POSITION / FONT</p>
 						<div class="controls__input--style--box">
 							<input id="controls-check-btn" type="checkbox" class="controls--check-btn"/>
-							<label for="controls-check-btn" class="controls__input--style--controls">C</label>
+							<label for="controls-check-btn" class="controls__input--style--controls click_clr"><span class="menu-span" id="menuSpan"></span>
+							</label>
 							<div class="controls__input--style--pos__controls">
 								<input type="checkbox" id="DragBtnX" unchecked ></input>
-								<label for="DragBtnX" class="pos__controls--x">X</label>
+								<label for="DragBtnX" class="pos__controls--x click_clr">&#8646;</label>
 								<input type="checkbox" id="DragBtnY" unchecked ></input>
-								<label for="DragBtnY" class="pos__controls--y">Y</label>
+								<label for="DragBtnY" class="pos__controls--y click_clr">&#8645;</label>
 							</div>
 							<input id="font-size-check-btn" type="button" class="font__size--check-btn"/>
-							<label for="font-size-check-btn" id="fontBtnLabel" class="controls__input--style--font-size">F</label>
+							<label for="font-size-check-btn" id="fontBtnLabel" class="controls__input--style--font-size click_clr">𝒇</label>
 						</div>
 					</div>
 					<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
